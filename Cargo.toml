@@ -1,0 +1,38 @@
+[package]
+name = "destiny-password-cli"
+version = "0.2.0"
+edition = "2021"
+rust-version = "1.85"
+description = "A local memory-hard deterministic password generator with One Shall Pass compatibility"
+license = "MIT"
+
+[[bin]]
+name = "destiny"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "=1.0.104"
+arboard = { version = "=3.6.1", default-features = false, features = ["wayland-data-control"] }
+argon2 = { version = "=0.5.3", features = ["zeroize"] }
+base64 = "=0.22.1"
+clap = { version = "=4.6.6", features = ["derive"] }
+directories = "=6.0.0"
+hmac = "=0.13.0"
+idna = "=1.1.0"
+pbkdf2 = "=0.13.0"
+rpassword = "=7.5.4"
+serde = { version = "=1.0.229", features = ["derive"] }
+sha2 = { version = "=0.11.0", features = ["zeroize"] }
+tempfile = "=3.27.0"
+toml = "=0.8.23"
+unicode-normalization = "=0.1.25"
+zeroize = "=1.9.0"
+
+[target.'cfg(unix)'.dependencies]
+rustix = { version = "=1.1.4", features = ["process"] }
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"
