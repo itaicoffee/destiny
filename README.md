@@ -1,5 +1,11 @@
 # destiny
 
+Install with Homebrew:
+
+```sh
+brew install itaicoffee/tap/destiny
+```
+
 `destiny` is a local, cross-platform Rust CLI for deterministic, site-specific
 passwords. Its modern v3 format is memory-hard; the exact One Shall Pass v2 and
 v1 formats remain available for existing logins. There is no server, account,
